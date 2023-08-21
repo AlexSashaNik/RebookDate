@@ -1,3 +1,6 @@
+Project **RebookDate** [![Build status](https://ci.appveyor.com/api/projects/status/jdy5oqgrl3fr8afc/branch/main?svg=true)](https://ci.appveyor.com/project/AlexSashaNik/rebookdate/branch/main)
+
+
 Задача №1: 
 
 **"заказ доставки карты (изменение даты)"**
