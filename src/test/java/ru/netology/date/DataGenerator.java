@@ -22,7 +22,7 @@ public class DataGenerator {
 
     public static String generateCity() {
         var cities = new String[]{"Москва", "Казань", "Калининград", "Санкт-Петербург", "Екатеринбург", "Владивосток"};
-        return cities [new Random().nextInt(cities.length)];
+        return cities[new Random().nextInt(cities.length)];
     }
 
     public static String generateName(String locale) {
@@ -30,10 +30,12 @@ public class DataGenerator {
         return faker.name().lastName() + " " + faker.name().firstName();
 
     }
+
     public static String generatePhone(String locale) {
         var faker = new Faker(new Locale(locale));
         return faker.phoneNumber().phoneNumber();
     }
+
     public static class Registration {
         private Registration() {
         }

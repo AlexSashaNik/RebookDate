@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 //import ru.netology.date.DataGenerator;
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.Keys;
+
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -14,10 +15,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 class RebookDateTest {
 
-       @BeforeEach
-        void setup() {
-            open("http://localhost:9999");
-        }
+    @BeforeEach
+    void setup() {
+        open("http://localhost:9999");
+    }
 
     @Test
     @DisplayName("Should successful book and rebook meeting")
@@ -35,15 +36,15 @@ class RebookDateTest {
         $(".checkbox__box").click();
         $$("button").find(Condition.exactText("Запланировать")).click();
 
-    if ($(withText("Доставка в выбранный город недоступна")).isDisplayed()) {
-        int i = validUser.getCity().length() - 2;
-        while (i > 0) {
-            $("[data-test-id=city] .input__control").sendKeys(Keys.BACK_SPACE);
-            i--;
+        if ($(withText("Доставка в выбранный город недоступна")).isDisplayed()) {
+            int i = validUser.getCity().length() - 2;
+            while (i > 0) {
+                $("[data-test-id=city] .input__control").sendKeys(Keys.BACK_SPACE);
+                i--;
+            }
+            $(".menu-item__control").click();
+            $(".button__text").click();
         }
-        $(".menu-item__control").click();
-        $(".button__text").click();
-    }
         $("[data-test-id=success-notification]>.notification__content").shouldHave(Condition.exactText("Встреча успешно запланирована на " + firstMeetingDate));
         $("[placeholder='Дата встречи']").sendKeys(Keys.chord(Keys.SHIFT, Keys.UP), Keys.DELETE);
         $("[placeholder='Дата встречи']").setValue(secondMeetingDate);
